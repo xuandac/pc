@@ -15,3 +15,5 @@ $config = require(__DIR__ . '/../config/test.php');
 
 (new yii\web\Application($config))->run();
 //66666666666666666
+kak
+
