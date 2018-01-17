@@ -11,6 +11,13 @@ $d = ":\d+"; //Integer params
 return [
     "<controller$w>/<id$d>" => "<controller>/view",
     "<controller$w>/<action$w>/<id$d>" => "<controller>/<action>",
+    "sitemap.xml"=>'site-maps/index',
+    "categories-sitemap.xml"=>'site-maps/categories',
+    "post-sitemap.xml"=>'site-maps/post',
+    "video-sitemap.xml"=>'site-maps/video',
+    "categories-sitemap-page-<page:\d+>.xml"=>'site-maps/categories-page',
+    "post-sitemap-page-<page:\d+>.xml"=>'site-maps/post-page',
+    "video-sitemap-page-<page:\d+>.xml"=>'site-maps/video-page',
     "404.html" => 'site/error',
     //"tin-tuc"=>'categories-post/index',      
     [

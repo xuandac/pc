@@ -31,6 +31,7 @@ use Yii;
  * @property integer $hot
  * @property integer $Type
  * @property integer $IsDelete
+ * @property integer $Post_Type
  */
 class Post extends \yii\db\ActiveRecord
 {
@@ -49,7 +50,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             [['Thumb', 'Content'], 'string'],
-            [['Status', 'CreateUser', 'UpdateUser', 'FeaturedNews', 'Focus', 'hot', 'Type', 'IsDelete'], 'integer'],
+            [['Status', 'CreateUser', 'UpdateUser', 'FeaturedNews', 'Focus', 'hot', 'Type', 'IsDelete','Post_Type'], 'integer'],
             [['DateCreate', 'DateUpdate', 'DatePublic'], 'safe'],
             [['Title', 'Slug', 'Tags', 'SEO_Title', 'SEO_Description', 'SEO_Keywords', 'SEO_Canonical', 'SEO_301'], 'string', 'max' => 255],
             [['Summary'], 'string', 'max' => 300],
