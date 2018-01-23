@@ -25,14 +25,14 @@ class SiteMapsService {
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'POST'])->all();
+                ->andWhere(['Post_Type'=>'POST'])->orderBy("ID DESC")->all();
     }
     public function sitemapVideo() {
         return Post::find()
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'VIDEO'])->all();
+                ->andWhere(['Post_Type'=>'VIDEO'])->orderBy("ID DESC")->all();
     }
 
     public function sitemapCategoriesPage($limit, $page) {
@@ -45,7 +45,7 @@ class SiteMapsService {
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'POST'])
+                ->andWhere(['Post_Type'=>'POST'])->orderBy("ID DESC")
                 ->limit($limit)->offset($offset)->all();
     }
     public function sitemapVideoPage($limit, $page) {
@@ -54,7 +54,7 @@ class SiteMapsService {
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'VIDEO'])
+                ->andWhere(['Post_Type'=>'VIDEO'])->orderBy("ID DESC")
                 ->limit($limit)->offset($offset)->all();
     }
 
@@ -68,7 +68,7 @@ class SiteMapsService {
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'POST'])->count();
+                ->andWhere(['Post_Type'=>'POST'])->orderBy("ID DESC")->count();
         return ceil($count / $limit);
     }
     public function countPageSitemapVideo($limit) {
@@ -76,7 +76,7 @@ class SiteMapsService {
                 ->where(['Status' => 1])
                 ->andWhere(['<=', 'DatePublic', date("Y-m-d H:i:s")])
                 ->andWhere(['IsDelete'=>0])
-                ->andWhere(['Post_Type'=>'VIDEO'])->count();
+                ->andWhere(['Post_Type'=>'VIDEO'])->orderBy("ID DESC")->count();
         return ceil($count / $limit);
     }
 
