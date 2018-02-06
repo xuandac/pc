@@ -29,6 +29,9 @@ echo '<?xml-stylesheet type="text/xsl" href="' . $domain . '/xml/sitemap.xsl"?>'
         <?php
     }
     ?>
+	<sitemap>
+            <loc><?= $domain ?>/sitemap-post-google-news.xml</loc>
+        </sitemap>
 </sitemapindex>
 <?php
 die;

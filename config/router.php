@@ -12,6 +12,7 @@ return [
     "<controller$w>/<id$d>" => "<controller>/view",
     "<controller$w>/<action$w>/<id$d>" => "<controller>/<action>",
     "sitemap.xml"=>'site-maps/index',
+    "sitemap-post-google-news.xml"=>'site-maps/post-google-news',
     "categories-sitemap.xml"=>'site-maps/categories',
     "post-sitemap.xml"=>'site-maps/post',
     "video-sitemap.xml"=>'site-maps/video',

@@ -48,6 +48,7 @@ class SiteMapsController extends Controller {
         $dataSiteMaps = $this->sitemapService->findByKey('VFlQRQ');
         $data = json_decode($dataSiteMaps['Value'], true);
         $result = [];
+        $result['google_news'] = $data['post_check_gnews'];
         $view = "";
         if ($data['post_check_page'] == 1) {
             $limit = $data['post_page'];
@@ -65,12 +66,26 @@ class SiteMapsController extends Controller {
         $data = json_decode($dataSiteMaps['Value'], true);
         $limit = $data['post_page'];
         $result['data'] = $this->sitemapService->sitemapPostPage($limit, $page);
+        $result['google_news'] = $data['post_check_gnews'];
         return $this->render('post-list', $result);
     }
+
+    public function actionPostGoogleNews() {
+        $dataSiteMaps = $this->sitemapService->findByKey('VFlQRQ');
+        $data = json_decode($dataSiteMaps['Value'], true);
+        if ($data['post_check_gnews'] == 1) {
+            $result['data'] = $this->sitemapService->sitemapPostGoogleNews(1000);
+            return $this->render('post-list-google-news', $result);
+        } else {
+            die('Không hỗ trợ');
+        }
+    }
+
     public function actionVideo() {
         $dataSiteMaps = $this->sitemapService->findByKey('VFlQRQ');
         $data = json_decode($dataSiteMaps['Value'], true);
         $result = [];
+        $result['google_news'] = $data['video_check_gnews'];
         $view = "";
         if ($data['video_check_page'] == 1) {
             $limit = $data['video_page'];
@@ -88,7 +103,19 @@ class SiteMapsController extends Controller {
         $data = json_decode($dataSiteMaps['Value'], true);
         $limit = $data['video_page'];
         $result['data'] = $this->sitemapService->sitemapVideoPage($limit, $page);
+        $result['google_news'] = $data['video_check_gnews'];
         return $this->render('video-list', $result);
+    }
+
+    public function actionVideoGoogleNews() {
+        $dataSiteMaps = $this->sitemapService->findByKey('VFlQRQ');
+        $data = json_decode($dataSiteMaps['Value'], true);
+        if ($data['video_check_gnews'] == 1) {
+            $result['data'] = $this->sitemapService->sitemapVideoGoogleNews(1000);
+            return $this->render('video-list-google-news', $result);
+        } else {
+            die("Không hỗ trợ.");
+        }
     }
 
 }
